@@ -1,0 +1,12 @@
+extend type Query {
+    JobPreferences(search: String @scope): [JobPreference] @paginate
+    JobPreference(id: ID! @eq): JobPreference @find
+}
+
+type JobPreference {
+    id: ID,
+    employment_type: String,
+    amount: String,
+    provider: Provider @belongsTo
+    jobCategory: JobCategory @belongsTo
+}

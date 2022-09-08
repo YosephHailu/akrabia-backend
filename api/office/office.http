@@ -1,0 +1,14 @@
+POST {{hostname}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+query($id: ID!) {
+    office(id: $id) {
+        id,
+        name
+    }
+}
+
+{
+    "id": 2
+}

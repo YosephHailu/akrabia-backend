@@ -1,0 +1,14 @@
+POST {{hostname}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+query($id: ID!) {
+    definedComplaint(id: $id) {
+        id,
+        complaint
+    }
+}
+
+{
+    "id": 2
+}

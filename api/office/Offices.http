@@ -1,0 +1,12 @@
+POST {{hostname}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+query {
+    offices(first: 10, page: 1) {
+        data {
+            id,
+            name
+        }
+    }
+}

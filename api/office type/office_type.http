@@ -1,0 +1,14 @@
+POST {{hostname}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+query($id: String!) {
+    store(id: $id) {
+        id,
+        image
+    }
+}
+
+{
+    id: "e35496ab-170c-4d96-ad43-953341384c73"
+}

@@ -1,0 +1,20 @@
+extend type Query {
+    providers: [Provider] @paginate
+    provider(id: ID! @eq): Provider @find
+}
+
+type Provider {
+    id: ID
+    name: String,
+    status: String,
+    description: String,
+    badge_id: String,
+    verified: String,
+    provider_image: String,
+    location: Location
+}
+
+type Location {
+    lat: Float!
+    lng: Float!
+}

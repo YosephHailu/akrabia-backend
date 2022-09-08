@@ -1,0 +1,12 @@
+extend type Query {
+    job_categories(search: String @scope): [JobCategory] @paginate
+    job_category(id: ID! @eq): JobCategory @find
+}
+
+type JobCategory {
+    id: ID
+    name: String,
+    description: String,
+    icon_image: String,
+    parent_job_category_id: ID,
+}
