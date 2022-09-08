@@ -1,6 +1,6 @@
 extend type Query {
-    JobPreferences(search: String @scope): [JobPreference] @paginate
-    JobPreference(id: ID! @eq): JobPreference @find
+    jobPreferences(search: String @scope, job_category_id: ID @eq, amount: Float @where(operator: "<")): [JobPreference] @paginate
+    jobPreference(id: ID! @eq): JobPreference @find
 }
 
 type JobPreference {

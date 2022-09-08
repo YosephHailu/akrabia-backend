@@ -38,6 +38,27 @@ class JobPreferenceSeeder extends Seeder
             'amount' => 354
         ]);
 
+        $jobPreference = JobPreference::firstOrCreate([
+            'provider_id' => Provider::inRandomOrder()->first()->id,
+            'job_category_id' => JobCategory::inRandomOrder()->first()->id,
+            'employment_type' => "Part time",
+            'amount' => 4568
+        ]);
+
+        $jobPreference = JobPreference::firstOrCreate([
+            'provider_id' => Provider::inRandomOrder()->first()->id,
+            'job_category_id' => JobCategory::inRandomOrder()->first()->id,
+            'employment_type' => "Part time",
+            'amount' => 3987
+        ]);
+
+        $jobPreference = JobPreference::firstOrCreate([
+            'provider_id' => Provider::inRandomOrder()->first()->id,
+            'job_category_id' => JobCategory::inRandomOrder()->first()->id,
+            'employment_type' => "Full time",
+            'amount' => 9354
+        ]);
+
         // $jobPreference->addMediaFromDisk('folder/dish.jpeg')->toMediaCollection('JOB_PREFERENCE_PHOTO');
     }
 }

@@ -18,6 +18,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(JobCategorySeeder::class);
         $this->call(ProviderSeeder::class);
-        $this->call(JobPreferenceSeeder::class);
+        // $this->call(JobPreferenceSeeder::class);
     }
 }
