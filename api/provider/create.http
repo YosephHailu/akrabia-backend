@@ -1,0 +1,18 @@
+POST {{hostname}}
+Content-Type: application/json
+Authorization: {{_token}}
+X-REQUEST-TYPE: GraphQL
+
+mutation($name: String!, $description: String!) {
+    createProvider(input: {name: $name, description: $description, location: { "lat": 8.548978,
+        "lng": 11.548978
+    }}) {
+        id,
+        name
+    }
+}
+
+{
+    "name": "Samsung",
+    "description": "Thsi is a short description"
+}

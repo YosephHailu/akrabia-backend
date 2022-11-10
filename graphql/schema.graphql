@@ -9,6 +9,7 @@ scalar Upload
   @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Upload")
   
 #import models/*.graphql
+#import models/Authenticator/*.graphql
 
 type Query
 

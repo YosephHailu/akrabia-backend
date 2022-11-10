@@ -1,0 +1,10 @@
+extend type Query {
+    me: User @auth 
+    users(role: String @scope, search: String @scope): [User!]! @guard(with: ["api"]) @paginate
+    user(id: String! @eq @rules(apply: ["exists:users,id"])): User! @find
+}
+
+input UserBelongsTo {
+    connect: String @rules(apply: ["exists:users,id"])
+}
+

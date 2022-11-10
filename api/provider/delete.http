@@ -1,0 +1,14 @@
+POST {{hostname}}
+Content-Type: application/json
+Authorization: {{_token}}
+X-REQUEST-TYPE: GraphQL
+
+mutation($id: String!) {
+    deleteStore(id: $id) {
+        id
+    }
+}
+
+{
+    "id": "a11a4da-2d9e-4d0a-a489-0dd1f0043a3b"
+}

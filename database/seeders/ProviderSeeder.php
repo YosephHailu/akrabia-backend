@@ -34,7 +34,7 @@ class ProviderSeeder extends Seeder
         $jobPreference = JobPreference::firstOrCreate([
             'provider_id' => $provider->id,
             'job_category_id' => JobCategory::get()[1]->id,
-            'employment_type' => "Full time",
+            'employment_type' => "full time",
             'amount' => 150
         ]);
 
@@ -54,7 +54,7 @@ class ProviderSeeder extends Seeder
         $jobPreference = JobPreference::firstOrCreate([
             'provider_id' => $provider->id,
             'job_category_id' => JobCategory::get()[2]->id,
-            'employment_type' => "Part time",
+            'employment_type' => "part time",
             'amount' => 150
         ]);
 
@@ -74,7 +74,7 @@ class ProviderSeeder extends Seeder
         $jobPreference = JobPreference::firstOrCreate([
             'provider_id' => $provider->id,
             'job_category_id' => JobCategory::get()[1]->id,
-            'employment_type' => "Full time",
+            'employment_type' => "full time",
             'amount' => 150
         ]);
 
@@ -94,7 +94,7 @@ class ProviderSeeder extends Seeder
         $jobPreference = JobPreference::firstOrCreate([
             'provider_id' => $provider->id,
             'job_category_id' => JobCategory::get()[2]->id,
-            'employment_type' => "Full time",
+            'employment_type' => "full time",
             'amount' => 150
         ]);
 
@@ -112,7 +112,7 @@ class ProviderSeeder extends Seeder
         $jobPreference = JobPreference::firstOrCreate([
             'provider_id' => $provider->id,
             'job_category_id' => JobCategory::get()[0]->id,
-            'employment_type' => "Full time",
+            'employment_type' => "full time",
             'amount' => 150
         ]);
 
@@ -134,7 +134,7 @@ class ProviderSeeder extends Seeder
         $jobPreference = JobPreference::firstOrCreate([
             'provider_id' => $provider->id,
             'job_category_id' => JobCategory::get()[0]->id,
-            'employment_type' => "Full time",
+            'employment_type' => "full time",
             'amount' => 150
         ]);
 
@@ -156,7 +156,7 @@ class ProviderSeeder extends Seeder
         $jobPreference = JobPreference::firstOrCreate([
             'provider_id' => $provider->id,
             'job_category_id' => JobCategory::get()[1]->id,
-            'employment_type' => "Full time",
+            'employment_type' => "full time",
             'amount' => 120
         ]);
 
@@ -176,7 +176,7 @@ class ProviderSeeder extends Seeder
         $jobPreference = JobPreference::firstOrCreate([
             'provider_id' => $provider->id,
             'job_category_id' => JobCategory::get()[4]->id,
-            'employment_type' => "Full time",
+            'employment_type' => "full time",
             'amount' => 620
         ]);
 
@@ -196,7 +196,7 @@ class ProviderSeeder extends Seeder
         $jobPreference = JobPreference::firstOrCreate([
             'provider_id' => $provider->id,
             'job_category_id' => JobCategory::get()[5]->id,
-            'employment_type' => "Full time",
+            'employment_type' => "full time",
             'amount' => 320
         ]);
 

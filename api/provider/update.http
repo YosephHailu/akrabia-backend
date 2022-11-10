@@ -1,0 +1,17 @@
+POST {{hostname}}
+Content-Type: application/json
+Authorization: {{_token}}
+X-REQUEST-TYPE: GraphQL
+
+mutation($id: String!, $name: String!, $description: String!) {
+    updateBrand(input: {id: $id, name: $name, description: $description}) {
+        id,
+        name
+    }
+}
+
+{
+    "id": "4ca681fb-ed4b-4861-bbc3-38455644140f",
+    "name": "Brand news updated",
+    "description": "Thsi is a short description"
+}

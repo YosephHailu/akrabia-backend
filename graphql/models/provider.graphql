@@ -3,6 +3,32 @@ extend type Query {
     provider(id: ID! @eq): Provider @find
 }
 
+extend type Mutation {
+    createProvider(input: ProviderCreateInput! @spread): Provider @field(resolver: "ProviderMutation@store")
+    updateProvider(input: ProviderUpdateInput! @spread): Provider @field(resolver: "ProviderMutation@update")
+    deleteProvider(id: String! @eq): Provider @guard(with: ["api"]) @delete
+}
+
+type Location {
+    lat: String!
+    lng: String!
+}
+
+input ProviderCreateInput {
+    name: String!
+    description: String
+    lat: Float
+    lng: Float
+    image: Upload
+}
+
+input ProviderUpdateInput {
+    id: String! @rules(apply: ["required", "exists:brands,id"])
+    name: String!
+    description: String
+    image: Upload
+}
+
 type Provider {
     id: ID
     name: String,
@@ -12,9 +38,4 @@ type Provider {
     verified: String,
     provider_image: String,
     location: Location
-}
-
-type Location {
-    lat: Float!
-    lng: Float!
 }

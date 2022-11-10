@@ -1,0 +1,16 @@
+POST {{hostname}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+query {
+    providers(first: 10, page: 1) {
+        data {
+            id,
+            name,
+            products {
+                id,
+                name
+            }
+        }
+    }
+}
