@@ -11,6 +11,13 @@ type User {
     id: ID!
     name: String!
     email: String!
+    user_image: String
+    status: String
+    badge_id: String
+    description: String
+    verified: Boolean
+    jobPreferences: [JobPreference]
+    current_location: Location
 }
 
 type AuthPayload {
@@ -67,6 +74,7 @@ input NewPasswordWithCodeInput {
 input RegisterInput {
     lat: Float
     lng: Float
+    image: Upload
     name: String! @rules(apply: ["required", "string"])
     email: String! @rules(apply: ["required", "email", "unique:users,email"])
     password: String! @rules(apply: ["required", "confirmed", "min:8"])

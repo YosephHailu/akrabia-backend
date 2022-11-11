@@ -3,10 +3,24 @@ extend type Query {
     jobPreference(id: ID! @eq): JobPreference @find
 }
 
+extend type Mutation {
+    createJobPreference(input: JobPreferenceCreateInput! @spread): JobPreference @guard(with: ["api"]) @field(resolver: "JobPreferenceMutation@store")
+}
+
+input JobPreferenceCreateInput {
+    employment_type: String!
+    jobCategory: JobCategoryBelongsTo!
+    amount: Float!
+}
+
+input JobCategoryBelongsTo {
+    connect: ID! @rules(apply: ["exists:job_categories,id"])
+}
+
 type JobPreference {
     id: ID,
     employment_type: String,
     amount: String,
-    provider: Provider @belongsTo
     jobCategory: JobCategory @belongsTo
+    user: User @belongsTo
 }

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('job_preferences', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('provider_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->foreignId('job_category_id')->constrained();
             $table->string('employment_type');
             $table->double('amount');

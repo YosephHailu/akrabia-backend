@@ -25,30 +25,30 @@ final class ProviderMutation
         $data = collect($args)->only(['name', 'description']);
         $data['badge_id'] = Str::upper($data['name'])."-". rand(10000, 99999);
         $data['location'] = collect(['lat' => $args['lat'], 'lng' => $args['lng']]);
-        $brand = Provider::create($data->toArray());
+        $provider = Provider::create($data->toArray());
 
         try {
             if($args['image']){
-                $brand->addMedia($args['image'])->toMediaCollection(Config::get('constants.BRAND_IMAGE'));
+                $provider->addMedia($args['image'])->toMediaCollection("PROVIDER_IMAGE");
             }
         } catch(Exception $exception) {}
         
-        return $brand;
+        return $provider;
     }
 
     public function update($rootValue, array $args)
     {
         $data = collect($args)->only(['name', 'description']);
-        $brand = Provider::find($args['id']);
-        $brand->update($data->toArray());
+        $provider = Provider::find($args['id']);
+        $provider->update($data->toArray());
 
         try {
             if($args['image']){
-                $brand->media()->delete();
-                $brand->addMedia($args['image'])->toMediaCollection(Config::get('constants.BRAND_IMAGE'));
+                $provider->media()->delete();
+                $provider->addMedia($args['image'])->toMediaCollection("PROVIDER_IMAGE");
             }
         } catch(Exception $exception) {}
         
-        return $brand;
+        return $provider;
     }
 }

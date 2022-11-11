@@ -4,13 +4,17 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Support\Str;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -22,7 +26,16 @@ class User extends Authenticatable
         'email',
         'current_location',
         'password',
+        'badge_id',
+        'description',
+        'status',
+        'verified'
     ];
+
+    public function getUserImageAttribute()
+    {
+        return Str::replaceFirst('http://localhost', url(''), $this->getFirstMediaUrl('USER_IMAGE'));
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -41,6 +54,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'current_location' => 'object',
     ];
 
     public function hasRole($role)
@@ -58,4 +72,13 @@ class User extends Authenticatable
         return false;
     }
 
+    /**
+     * Get all of the jobPreferences for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function jobPreferences(): HasMany
+    {
+        return $this->hasMany(JobPreference::class);
+    }
 }

@@ -23,15 +23,14 @@ class JobPreference extends Model implements HasMedia
         return Str::replaceFirst('http://localhost', url(''), $this->getFirstMediaUrl('JOB_CATEGORY_ICON'));
     }
 
-
     /**
-     * Get the provider that owns the Provider
+     * Get the user that owns the User
      *
-     * @return \Illuminate\Provider\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\User\Eloquent\Relations\BelongsTo
      */
-    public function provider(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(Provider::class);
+        return $this->belongsTo(User::class);
     }
 
     /**
